@@ -1,0 +1,37 @@
+:root {
+  --size: 55px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #FEF0CF;
+}
+
+#board {
+  display: grid;
+  grid-template-rows: repeat(8, var(--size));
+  grid-template-columns: repeat(8, var(--size));
+
+  width: calc(var(--size) * 8 + 4px * 2);
+  margin: 60px auto;
+
+  border: #2E2311 4px solid;
+}
+
+img {
+  width: var(--size);
+  cursor: pointer;
+}
+
+img.transparent {
+  opacity: 0.5;
+}
+
+img.red {
+  background-color: rgba(200, 20, 10, 0.3);
+}
