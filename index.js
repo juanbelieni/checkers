@@ -60,9 +60,12 @@ function draw() {
     if (occupied !== 0) {
       spot.innerHTML = `<img src="${colorsPNG[occupied]}.png"/>`;
     } else {
-      spot.innerHTML = ''
+      spot.innerHTML = '';
     }
   });
+
+  const score = getScore();
+  document.querySelector("#score").innerHTML = `Brancas ${score[1]} x ${score[2]} Pretas`
 }
 
 function movePiece(from, to) {
@@ -138,7 +141,7 @@ function findMoves(i) {
       } else if (board[di].occupied !== turn && board[di].occupied !== 0) {
         const d_2 = findDiagonals(d.x, d.y)[j];
         if (!d_2) return;
-        
+
         const d_2i = getIndex(d_2.x, d_2.y);
         if (board[d_2i].occupied === 0) {
           showRedPiece(i, di, d_2i);
@@ -150,6 +153,16 @@ function findMoves(i) {
 
   console.log(moves);
   return moves;
+}
+
+function getScore() {
+  const score = { 1: 12, 2: 12 };
+
+  board.forEach(spot => {
+    if (spot.occupied !== 0) score[spot.occupied] -= 1;
+  });
+
+  return score;
 }
 
 createBoard();

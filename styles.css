@@ -12,13 +12,21 @@ body {
   background-color: #FEF0CF;
 }
 
+#score {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-size: 24px;
+  font-family: sans-serif;
+}
+
 #board {
   display: grid;
   grid-template-rows: repeat(8, var(--size));
   grid-template-columns: repeat(8, var(--size));
 
   width: calc(var(--size) * 8 + 4px * 2);
-  margin: 60px auto;
+  margin: 0 auto;
 
   border: #2E2311 4px solid;
 }
